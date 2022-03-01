@@ -8,31 +8,31 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { CssBaseline } from "@material-ui/core";
 
 const App = () => {
-	const [user] = useAuthState(auth);
-	const isAuthenticated = user !== null;
+    const [user] = useAuthState(auth);
+    const isAuthenticated = user !== null;
 
-	return (
-		<div className="app">
-			<CssBaseline />
-			{!isAuthenticated ? (
-				<HomePage />
-			) : (
-				<div className="app_body">
-					<Router>
-						<Sidebar />
-						<Switch>
-							<Route path="/chats/:chatsId">
-								<Chat />
-							</Route>
-							<Route path="/chats">
-								<Chat />
-							</Route>
-						</Switch>
-					</Router>
-				</div>
-			)}
-		</div>
-	);
+    return (
+        <div className="app">
+            <CssBaseline />
+            {!isAuthenticated ? (
+                <HomePage />
+            ) : (
+                <div className="app_body">
+                    <Router>
+                        <Sidebar />
+                        <Switch>
+                            <Route path="/chats/:chatsId">
+                                <Chat />
+                            </Route>
+                            <Route path="/chats">
+                                <Chat />
+                            </Route>
+                        </Switch>
+                    </Router>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default App;
